@@ -1,0 +1,92 @@
+    <!-- INTERPOLATION--USE JS TO DISPLAY DATA -->
+    <!--Works well for adding dynamic values in headings, or using divs, spans, paragraphs, where you want to render text-->
+<h2>{{ title }}</h2>
+    <!--PROPERTY BINDING IS MORE VERBOSE BUT IS WHATS DONE UNDER THE HOOD, and USEFUL IN SOME CASES-->
+    <!--PROPERTY BINDING - you can why you wouldn't use it here because its text and more verbose-->
+    <!--PROPERTY BINDING works only one way component => DOM, so any changes to the dom are not reflected in the component-->
+<h2 [textContent]="title"></h2>
+<h3>{{getTitle() }}</h3>
+<ul>
+    <li *ngFor="let course of courses">
+    
+        {{ course }}
+  
+    </li>
+</ul>
+
+<!--PROPERTY BINDING-WE BIND THE PROPERTY OF A DOM ELEMENT(src) to a field or a property in our component -->
+<img [src]="imageUrl"/>
+<br>
+
+<table>
+    <tr>
+        <td [attr.colspan]="colSpan"></td>
+    </tr>
+</table>
+<br>
+<!--CLASS BINDING, if isActive property on the CourseComponent is true, then it adds a class called active-->
+<!--Adding a class based of the status of the underlying component-->
+<button class="btn btn-primary" [class.active]="isActive">Class Binding</button>
+<br>
+<br>
+
+<!--STYLE BINDING-->
+<button class = "btn btn-primary" [style.backgroundColor]="isActive ? 'blue' : 'black'">STyle Binding</button>
+<br>
+<br>
+<!--EVENT BINDING-->
+<!--If you want access to the event object, pass $event to the function-->
+
+<!--Event Bubbling-clicking the event button triggers events up the DOM TREE-->
+<div (click)="onDivClicked()">
+    <button (click)="onSave($event)" class = "btn btn-secondary">Event Binding</button>
+</div>
+<!--To prevent this, add $event.stopPropagation(); to the event function -->
+<br>
+<p>Event Filtering: Open the console, A message is logged to the console only when ENTER is pressed.</p>
+<!--Event Filtering-->
+<input (keyup)="onKeyUp($event)">
+<br>
+<br>
+<!-- A better way of Event Filtering-->
+<p>Event Filtering</p>
+<input (keyup.enter)="onKeyUp2()">
+<br>
+<br>
+<!--TEMPLATE VARIABLES - How to get the value typed into the input field-->
+<p>Template Variables using the event object</p>
+<input (keyup.enter)="onKeyUp3($event)"/>
+
+<!-- <p>Template Variables: Declare the template variable that references the input field #email</p> -->
+<!--pass email.value instead of the event object-->
+<!-- <input #email (keyup.enter)="onKeyUp4(email.value)"/> -->
+<br>
+<br>
+<p>Two Way Binding with ngModel directive</p>
+<!--Two-Way Binding-->
+<!--Couldn't get this way to work, but doesn't matter because ngModel is the preferred approach-->
+<!-- <input [value]="email" (keyup.enter)="email = $event.target?.value; onKeyUp5()"/> -->
+<input [(ngModel)]="email" (keyup.enter)="onKeyUp5()"/>
+
+
+<!--Pipes-->
+<!--Use pipes to format the data-->
+<br>
+<h2>Pipes</h2>
+
+<br>
+{{course.title | uppercase}}<br>
+{{course.title | lowercase}}<br>
+<p>1.2-2: {{course.rating | number:'1.2-2'}} </p>
+<p>1.1-1: {{course.rating | number:'1.1-1'}}</p>
+<p>1.2-2: {{course.rating | number:'1.1-2'}}</p>
+
+<p>2.1-2: {{course.rating | number:'2.1-2'}}</p>
+<br>
+
+<p>Currency pipe: {{course.price | currency}}</p>
+<p>Currency pipe: {{course.price | currency:'AUD':true:'4.2-2'}}</p>
+<p>Date pipe: {{course.releaseDate | date:'shortDate' }}</p>
+<br>
+{{course.students | number}}
+
