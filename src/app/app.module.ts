@@ -7,12 +7,20 @@ import { CoursesService } from './course/courses.service';
 import { AuthorsComponent } from './authors/authors.component';
 import { AuthorsService } from './authors.service';
 import {FormsModule} from '@angular/forms';
+import { SummaryPipe } from './summary.pipe';
+import { FavoriteComponent } from './favorite/favorite.component';
+import { TitlecaseComponent } from './titlecase/titlecase.component';
+import { TitleCasePipe } from './titlecase.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     //register the component
     CourseComponent,
-    AuthorsComponent
+    AuthorsComponent,
+    SummaryPipe,
+    FavoriteComponent,
+    TitlecaseComponent,
+    TitleCasePipe
   ],
   imports: [
     BrowserModule,

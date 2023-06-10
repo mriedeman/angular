@@ -13,6 +13,7 @@ export class CourseComponent {
       colSpan = 2;
       isActive = false;
       email: any= 'donkey@example.com';
+      text = "Lorem Ipsum is simply dummy text of the printing and typeset community."
 
       course = {
         title: "The Complete Angular Course",

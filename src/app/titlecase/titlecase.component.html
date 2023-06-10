@@ -1,0 +1,12 @@
+<div class="text-center">
+    <div>
+        <p>Type text to recieve a converted output to title case.</p>
+    </div>
+    <div>
+      <input type="text" class="raw-input" 
+      [(ngModel)]="titleCase"/>
+    </div>
+    <div style="margin-top: 10px;">
+      {{titleCase | titleCasePipe}}
+    </div>
+</div>
