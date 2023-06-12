@@ -1,8 +1,9 @@
 
 <h2>Using class binding and event handler to change the icon given the components state.</h2>
 <i
-[class.bi-question-diamond-fill]="isFavorite"
-[class.bi-question-diamond]="!isFavorite"
+class="icon-styles"
+[class.bi-question-diamond-fill]="isSelected"
+[class.bi-question-diamond]="!isSelected"
 (click)="onClick()"
 ></i>
 

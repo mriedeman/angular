@@ -9,4 +9,8 @@ export class TitlecaseComponent {
 
   titleCase = ""
 
+  titleCasefunc() {
+  
+  }
+
 }
