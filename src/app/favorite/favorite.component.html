@@ -7,3 +7,13 @@ class="icon-styles"
 (click)="onClick()"
 ></i>
 
+<!-- [ngClass]="{
+    
+}" -->
+<!--Using ngClass as an attribute directive, same as above -->
+<i class = 'icon-styles'
+   [ngClass]="{
+    'class.bi-question-diamond-fill': isSelected,
+    'class.bi-question-diamond': !isSelected
+   }"
+></i>
